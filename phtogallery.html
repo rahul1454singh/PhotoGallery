@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PHOTO GALLERY</title>
+ <style>
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+  
+    
+  }
+  input{
+    display: none;
+  }
+ .container{
+  width: 100%;
+  text-align: center;
+ }
+ h1{
+  font-weight: normal;
+  font-size: 35px;
+  position: relative;
+  margin: 40px 0 ;
+ }
+ h1::before{
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 3px;
+  background-color: rgb(8, 8, 8);
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: animate 4s linear infinite;
+}
+@keyframes animate{
+  0%{
+    width: 100px;
+  }
+  50%{
+    width: 400px;
+  }
+  100%{
+    width: 100px;
+  }
+}
+.top-content{
+  background-color: rgb(223, 216, 216);
+  width: 90%;
+  margin: 0 auto 20px auto;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  box-shadow: 3px 3px 5px rgb(44, 43, 43) ;
+}
+h3{
+  height: 100%;
+  background-color: rgb(109, 106, 106);
+  line-height: 60px;
+  padding: 0 50 px;
+  justify-self: start;
+  color: rgb(12, 11, 11);
+}
+label{
+  display: inline-block;
+  height: 100%;
+ margin: 0 20px;
+ line-height: 60px;
+ font-size: 18px;
+ color: rgb(139, 138, 138);
+ 
+ transition: color.5s;
+
+}
+label:hover{
+  color: black;
+
+}
+.photo-gallery{
+  width: 90%;
+  margin: auto;
+  /* display: grid;
+  grid-template-columns: repeat(6,1fr); */
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.pic{
+  position: relative;
+  max-width: 100%;
+  width: 180px;
+  height: 230px ;
+  border-radius:10px ;
+  box-shadow: 3px 3px 5px rgb(87, 84, 84);
+ 
+  transition: .5s;
+}
+.pic img{
+  width: 100%;
+  height: 100%;
+  border-radius:10px ;
+  transition: .5s;
+}
+
+.pic:after{
+  content:'';
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  border-radius: 10px;
+  height: 100%;
+  background-color: rgb(0,0,0,.4);
+  transition: .3s;
+}
+.pic:hover::after{
+  height: 100%;
+}
+.pic:hover::before{
+  margin-top:0;
+  opacity: 1;
+}
+#check1:checked ~ .container .photo-gallery .pic{
+  opacity: 1;
+  transform: scale(1);
+  position: relative;
+  transition: .5s ;
+
+}
+#check2:checked ~ .container .photo-gallery .Temple{
+  transform: scale(1);
+  opacity: 1;
+  position: relative;
+ 
+}
+#check2:checked ~ .container .photo-gallery .Animal,
+  #check2:checked ~ .container .photo-gallery .Mountains{
+    opacity: 0;
+    transform: scale(0);
+    position: absolute;
+   transition: 0s;
+  }
+
+  #check3:checked ~ .container .photo-gallery .Animal{
+  transform: scale(1);
+  opacity: 1;
+  position: relative;
+ 
+}
+#check3:checked ~ .container .photo-gallery .Temple,
+#check3:checked ~ .container .photo-gallery .Mountains{
+    opacity: 0;
+    transform: scale(0);
+    position: absolute;
+   transition: 0s;
+  }
+
+
+  #check4:checked ~ .container .photo-gallery .Mountains{
+  transform: scale(1);
+  opacity: 1;
+  position: relative;
+ 
+}
+#check4:checked ~ .container .photo-gallery .Temple,
+#check4:checked ~ .container .photo-gallery .Animal{
+    opacity: 0;
+    transform: scale(0);
+    position: absolute;
+   transition: 0s;
+  }
+
+  .pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media screen and (width<600px) {
+  .pic{
+    width: 90%;
+    height: 500px;
+    margin: 0 auto;
+  }
+}
+
+ </style>
+</head>
+<body>
+
+  <input type="radio" name="Photos" id="check1" checked>
+  <input type="radio" name="Photos" id="check2">
+  <input type="radio" name="Photos" id="check3">
+  <input type="radio" name="Photos" id="check4">
+  
+<div class="container">
+  <h1>OUR PHOTO GALLERY</h1>
+  <div class="top-content">
+    <h3>Photo Gallery</h3>
+    <label for="check1">ALL Photos</label>
+    <label for="check2">Temple </label>
+    <label for="check3"> Animal </label>
+    <label for="check4">Mountains</label>
+  </div>
+       
+     <div class="photo-gallery">
+          <div class="pic Mountains">
+             <img src="mountains .1.jpg">
+         </div>
+
+            <div class="pic Temple">
+                <img src="Temple.1.jpeg">
+             </div>
+           
+
+             <div class="pic Animal">
+                <img src="animals1.jpeg">
+             </div>
+
+
+             <div class="pic Mountains">
+              <img src="mountains .2.jpeg">
+          </div>
+ 
+             <div class="pic Temple">
+                 <img src="Temple.2.jpeg">
+              </div>
+            
+ 
+              <div class="pic Animal">
+                 <img src="animals2.jpeg">
+              </div>
+
+
+              <div class="pic Mountains">
+                <img src="mountains .3.jpeg">
+            </div>
+   
+               <div class="pic Temple">
+                   <img src="Temple.3.jpeg">
+                </div>
+              
+   
+                <div class="pic Animal">
+                   <img src="animals3.jpeg">
+                </div>
+
+
+                <div class="pic Mountains">
+                  <img src="mountains .4.jpeg">
+              </div>
+     
+                 <div class="pic Temple">
+                     <img src="Temple.4.jpeg">
+                  </div>
+                
+     
+                  <div class="pic Animal">
+                     <img src="animals4.jpeg">
+                  </div>
+
+                  <div class="pic Mountains">
+                    <img src="mountains .5.jpeg">
+                </div>
+       
+                   <div class="pic Temple">
+                       <img src="Temple.5.jpeg">
+                    </div>
+                  
+       
+                    <div class="pic Animal">
+                       <img src="animals5.jpeg">
+                    </div>
+
+                    <div class="pic Mountains">
+                      <img src="mountains .6.jpeg">
+                  </div>
+         
+                     <div class="pic Temple">
+                         <img src="Temple.6.jpeg">
+                      </div>
+                    
+         
+                      <div class="pic Animal">
+                         <img src="animals6.jpeg">
+                      </div>
+     </div>
+</div>
+
+
+<script>
+  
+  window.onload = function() {
+    let photoGallery = document.querySelector('.photo-gallery');
+    photoGallery.style.opacity = 0;
+    setTimeout(function() {
+      photoGallery.style.opacity = 1;
+      photoGallery.style.transition = 'opacity 1s';
+    }, 500);
+  };
+
+  
+  let labels = document.querySelectorAll('label');
+  labels.forEach(label => {
+    label.addEventListener('mouseover', function() {
+      let category = label.getAttribute('for');
+      let photos = document.querySelectorAll(`.${category}`);
+      photos.forEach(photo => {
+        photo.style.transform = 'translateX(-100%)';
+        photo.style.transition = 'transform 0.5s';
+        setTimeout(function() {
+          photo.style.transform = 'translateX(0)';
+        }, 500);
+      });
+    });
+  });
+
+  let pics = document.querySelectorAll('.pic');
+  pics.forEach(pic => {
+    pic.addEventListener('click', function() {
+      pic.style.transform = 'scale(1.1)';
+      pic.style.transition = 'transform 0.3s';
+    });
+    pic.addEventListener('mouseout', function() {
+      pic.style.transform = 'scale(1)';
+      pic.style.transition = 'transform 0.3s';
+    });
+  });
+
+
+const pic = document.querySelectorAll('.pic');
+pics.forEach(pic => {
+  pic.addEventListener('click', function() {
+    const modal = document.createElement('div');
+    modal.classList.add('modal');
+    modal.style.position = 'fixed';
+    modal.style.top = '0';
+    modal.style.left = '0';
+    modal.style.width = '100%';
+    modal.style.height = '100%';
+    modal.style.background = 'rgba(0, 0, 0, 0.8)';
+    modal.style.display = 'flex';
+    modal.style.justifyContent = 'center';
+    modal.style.alignItems = 'center';
+    
+
+    const img = document.createElement('img');
+    img.src = pic.querySelector('img').src;
+    img.style.width = '80%';
+    img.style.height = '80%';
+    img.style.objectFit = 'contain';
+
+    modal.appendChild(img);
+
+    document.body.appendChild(modal);
+
+    modal.addEventListener('click', function() {
+      modal.remove();
+    });
+  });
+});
+
+
+document.querySelector('.container').style.fontStyle = "italic";
+document.querySelector('.container').style.fontWeight = "bold";
+
+
+document.body.style.userSelect = 'none';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
